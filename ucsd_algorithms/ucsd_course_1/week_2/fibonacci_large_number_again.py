@@ -33,14 +33,14 @@ def pisano_period(m):
     return result
 
 def large_fib(n, m):
+    '''large_fib'''
     pp = pisano_period(m) #pisano periond
-    print('pp {}'.format(pp))
-    pisano_divide_result = n // pp
-    print('pisano_divide_result {}'.format(pisano_divide_result))
+    #print('pp {}'.format(pp))
     pisano_mod_result = n % pp
-    print('pisano_mode_result {}'.format(pisano_mod_result))
+    #print('pisano_mode_result {}'.format(pisano_mod_result))
     result = fib_iter(pisano_mod_result, m)
-    print(result)
+    #print(result)
+    return result
 
 input = input()
 inputs = [int(i) for i in input.split()]
@@ -48,4 +48,7 @@ n = inputs[0]
 m = inputs[1]
 
 #print(pisano_period(m))
-large_fib(n, m)
+print(large_fib(n, m))
+
+
+

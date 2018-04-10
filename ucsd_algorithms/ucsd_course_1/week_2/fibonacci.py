@@ -11,7 +11,7 @@ def fib_iter(n):
         c = a + b
         a = b
         b = c
-    
+
     #print('a {} b {} c {}'.format(a, b, c))
     return a
 
@@ -26,7 +26,7 @@ def fib_dynamic(n):
 
     #print (solution)
     return solution[n]
-                
+
 
 n = int(input())
 
