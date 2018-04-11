@@ -36,4 +36,3 @@ n = int(input())
 #print('fib_dynamic {}'.format(fib_dynamic(n)))
 print(fib_dynamic(n))
 
-
