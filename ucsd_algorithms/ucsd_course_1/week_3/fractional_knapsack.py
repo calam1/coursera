@@ -36,7 +36,7 @@ def get_optimal_value(capacity, weights, values):
     stuff = []
     for i in range(len(values)):
         r = values[i] / weights[i]
-        stuff.append((r, weights[i]))
+        stuff.append((r, weights[i])) # append tuple to list
 
     stuff.sort(reverse=True)
     #print(stuff)

@@ -5,7 +5,7 @@ def group_children_age_diff_no_more_than_a_year(kids):
     '''group children exercise'''
     groups = set()
     i = 0
-    while i < len(kids) - 1:
+    while i < len(kids):
         group = () # tuple, since you can't add list to set, since list is not immutable
         youngest = kids[i]
         print('youngest {}'.format(youngest))

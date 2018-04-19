@@ -15,7 +15,8 @@ def how_many_stops(stations, mileage):
             # add the starting point
             last_mileage_tracker = stations[i]
             print('last_mileage_tracker {}'.format(last_mileage_tracker))  # these are the stations we go to
-
+            
+            i+=1
             # if the next station exists and if the next stations is within the mileage of the car (next right point - starting point)
             while i + 1 < len(stations) and stations[i + 1] - last_mileage_tracker <= mileage:
                 gas_stops.pop()  # remove the old, we just want the stations we need to stop at
