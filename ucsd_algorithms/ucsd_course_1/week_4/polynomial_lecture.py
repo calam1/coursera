@@ -3,8 +3,7 @@ def naive_polynomial(A, B):
     print(product)
     for i in  range(len(A)):
         for j in range(len(B)):
-            #product[i+j] = product[i+j] + A[i] * B[j]
-            product[i+j] = A[i] * B[j]
+            product[i+j] = product[i+j] + A[i] * B[j]
     return product
 
 x = [3, 2, 5]

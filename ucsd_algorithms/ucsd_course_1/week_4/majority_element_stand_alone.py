@@ -15,15 +15,44 @@ def majorityElement(nums):
     b_array = nums[len(nums)//2:]
     a = majorityElement(a_array)
     b = majorityElement(b_array)
-    print('a {} and b {}'.format(a, b))
+    #print('a {} and b {}'.format(a, b))
 
     if a == b:
         return a
     else:
-        # checks count of a(which is a single digit) if > length//2 return a
+        # checks count of a(which is a single digit) if > length//2 return a - why even do the
+        # recursion, you can just iterate the list and run the count on the iterated element
         return a if nums.count(a) > len(nums)/2 else b
 
 
-A = [1, 3, 1, 3, 1, 1, 3, 1]; #Our array
-#A = [1, 3, 5, 7, 5]
-print(majorityElement(A))
+def majorityElement_2(myList):
+    length = len(myList)
+
+    if length == 1:
+        return myList[0]
+    if length == 0:
+        return -1
+    
+    a_array = myList[:len(myList)//2]
+    b_array = myList[len(myList)//2:]
+
+    ML = majorityElement_2(a_array)
+    MR = majorityElement_2(b_array)
+
+    if ML == MR:
+        return ML
+    if ML >= 0 and MR == -1:
+        return ML
+    elif ML == -1 and MR >= 0:
+        return MR
+    else:
+        return -1
+
+    return ML if myList.count(ML) > len(myList) else MR
+
+
+
+A = [3, 3, 1, 3, 1, 1, 3, 1]; #Our array
+#A = [1, 1, 2, 2, 3, 3, 4, 4]
+print('majorityElement {}'.format(majorityElement(A)))
+print('majorityElement_2 {}'.format(majorityElement_2(A)))

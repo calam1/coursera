@@ -1,8 +1,9 @@
+# this sort does not compare, if you know it is sequential data
 def counting_sort(aList, k):
     counter = [0] * (k + 1)
     for i in aList:
         counter[i] += 1
-
+    print('first array {}'.format(counter))
     idx = 0
     for i in range(len(counter)):
         while 0 < counter[i]:
@@ -16,3 +17,4 @@ k = 6
 #linear
 counting_sort(A, k)
 print(A)
+
