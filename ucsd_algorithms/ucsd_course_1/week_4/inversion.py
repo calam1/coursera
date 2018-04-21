@@ -25,7 +25,7 @@ def merge_sort(mylist):
             else:
                 c.append(right[j])
                 j += 1
-                inversions += (len(left)-i)
+                inversions += (len(left)-i) # length - i , any items after i are an inversion
 
         while i < len(left):
             c.append(left[i])
