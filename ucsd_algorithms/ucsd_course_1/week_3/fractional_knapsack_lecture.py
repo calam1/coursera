@@ -35,6 +35,7 @@ for i in range(len(units)):
 
 #print(sorted_list)
 
+# not dynamic programming, just sort and greedy algorithm
 def optimize_fractional_knapsack(items, capacity):
     stuff = []
     i = 0
@@ -51,5 +52,9 @@ def optimize_fractional_knapsack(items, capacity):
 
     return stuff
 
-# answer should be 42
+# answer should be 42 , returns array of values
 print(optimize_fractional_knapsack(sorted_list, 7))
+values = optimize_fractional_knapsack(sorted_list, 7)
+print(reduce(lambda a, b: a+b, values))
+
+

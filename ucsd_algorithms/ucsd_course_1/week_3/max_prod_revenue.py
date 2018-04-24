@@ -8,6 +8,7 @@ def max_dot_product(a, b):
     b.sort(reverse=True)
 
     c = [a * b for a, b in zip(a, b)]
+    print(c)
     return reduce((lambda x, y: x + y), c)
 
 if __name__ == '__main__':
