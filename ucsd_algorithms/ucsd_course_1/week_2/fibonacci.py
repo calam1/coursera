@@ -31,8 +31,8 @@ def fib_dynamic(n):
 n = int(input())
 
 # 1 1 2 3 5 8 13 21
-#print('fib_recursive {}'.format(fib_recursive(n)))
-#print('fib_iter {}'.format(fib_iter(n)))
-#print('fib_dynamic {}'.format(fib_dynamic(n)))
+print('fib_recursive {}'.format(fib_recursive(n)))
+print('fib_iter {}'.format(fib_iter(n)))
+print('fib_dynamic {}'.format(fib_dynamic(n)))
 print(fib_dynamic(n))
 
