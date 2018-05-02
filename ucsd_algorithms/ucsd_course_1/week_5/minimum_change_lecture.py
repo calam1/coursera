@@ -112,3 +112,85 @@ def findAllCountChange_rec(coins, coins_length, amount):
 
 print('find all change recursive {}'.format(findAllCountChange_rec([1, 2, 3], 0, 5)))
 
+
+
+
+
+
+
+def makeChangeShowListOfCoins(coins, amount):
+    solution = [[0 for _ in range(len(coins)+1)] for j in range(amount+1)]
+
+    for i in range(amount+1):
+        for j in range(len(coins)+1):
+            if i == 0:
+                solution[i][j] = 1
+            elif j == 0:
+                solution[i][j] = 0
+            else:
+                if coins[j-1] <= i:
+                    solution[i][j] = solution[i - coins[j-1]][j] + solution[i][j-1]
+                else:
+                    solution[i][j] = solution[i][j-1]
+
+    #i = len(coins)
+    #j = n
+    #ret = {k: 0 for k in coins}
+    #while j != 0:
+    #    if m[i][j - coins[i - 1]] == m[i][j] - 1:
+    #        ret[coins[i - 1]] += 1
+    #        j = j - coins[i - 1]
+    #    else:
+    #        i = i - 1
+
+    #return ret
+
+
+    i = len(coins)
+    j = amount
+    ret = {k: 0 for k in coins}
+
+    while j!=0:
+        if solution[j-coins[i-1]][i] == solution[j][i] - 1:
+            ret[coins[i-1]] += 1
+            j = j - coins[i-1]
+        else:
+            i = i-1
+
+    return ret
+    #return solution[amount][len(coins)]
+
+print('find all change and return list of coins {}'.format(makeChangeShowListOfCoins([1, 2, 3], 5)))
+
+
+# https://stackoverflow.com/questions/44775392/dynamic-change-making-algorithm-that-returns-actual-list-of-coins-used
+def _change_making(coins, n):
+    m = [[0 for _ in range(n + 1)] for _ in range(len(coins) + 1)]
+    for i in range(n + 1):
+        m[0][i] = i
+
+    for c in range(1, len(coins) + 1):
+        for r in range(1, n + 1):
+            if coins[c - 1] == r:
+                m[c][r] = 1
+            elif coins[c - 1] > r:
+                m[c][r] = m[c - 1][r]
+            else:
+                m[c][r] = min(m[c - 1][r], 1 + m[c][r - coins[c - 1]])
+
+    i = len(coins)
+    j = n
+    ret = {k: 0 for k in coins}
+    while j != 0:
+        if m[i][j - coins[i - 1]] == m[i][j] - 1:
+            ret[coins[i - 1]] += 1
+            j = j - coins[i - 1]
+        else:
+            i = i - 1
+
+    return ret
+
+
+print(_change_making([1, 2, 3], 5))
+
+

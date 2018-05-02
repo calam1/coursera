@@ -50,11 +50,11 @@ def edit_dist_dp(str1, str2, m, n):
                                          solution[i - 1][j - 1] # replace
                         )
 
-    print(solution)
+    #print(solution)
     return solution[m][n]
 
-#str1 = 'sunday' # answer should be 3
-#str2 = 'saturday'
+str1 = 'sunday' # answer should be 3
+str2 = 'saturday'
 ##str1 = 'editing'
 #str2 = 'distance'
 print('dynamic programming {}'.format(edit_dist_dp(str1, str2, len(str1), len(str2))))
